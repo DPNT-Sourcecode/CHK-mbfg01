@@ -9,6 +9,11 @@
 
 # is empty basket as illegal input? it should return 0 instead of -1 I guess
 def checkout(skus):
+    catagory = {}
+    # one pass to store
+    for i in skus:
+        if i not in ("A", "B", "C", "D")
+
     #price mapping
     special_price = {
         "A": (3, 130),
@@ -44,6 +49,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
