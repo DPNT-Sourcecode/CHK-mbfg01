@@ -6,6 +6,8 @@
 #  greedy
 
 # input string format? csv? or just like 1A2B3C ??
+
+# is empty basket as illegal input? it should return 0 instead of -1 I guess
 def checkout(skus):
     #price mapping
     special_price = {
@@ -42,6 +44,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
