@@ -15,8 +15,8 @@ def checkout(skus):
     normal_price = {
         "A": 50,
         "B": 30,
-        "A": 20,
-        "B": 15
+        "C": 20,
+        "D": 15
     }
     # fianl result
     res = 0
@@ -42,6 +42,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
