@@ -13,7 +13,7 @@ class TestSum(unittest.TestCase):
         assert checkout_solution.checkout("AAAAAAA") == 300
 
     def test_valid_4(self):
-        assert checkout_solution.checkout("AAAAAAAFF") == 310
+        assert checkout_solution.checkout("AAAAAAAFF") == 320
 
     def test_valid_5(self):
         assert checkout_solution.checkout("AAAAAAAF") == 310
@@ -38,4 +38,5 @@ class TestSum(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 

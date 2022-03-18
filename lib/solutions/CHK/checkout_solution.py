@@ -26,11 +26,16 @@ def checkout(skus):
         ("F", 2): ("F", 1)
     }
 
+    extra_condition_for_buy_get_free = {
+        "F": 3
+    }
+
     for k, v in buy_get_free_mapping.items():
         cat_from, nb_from = k
         cat_to, nb_to = v
-        if cat_to in catagory:
-            catagory[cat_to] -= (catagory[cat_from] // nb_from) * nb_to
+        if cat_from in extra_condition_for_buy_get_free and nb_from >=extra_condition_for_buy_get_free[cat_from]:
+            if cat_to in catagory:
+                catagory[cat_to] -= (catagory[cat_from] // nb_from) * nb_to
 
     #price mapping
     # ordered 
@@ -66,5 +71,6 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
