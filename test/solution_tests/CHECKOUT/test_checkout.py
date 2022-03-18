@@ -3,7 +3,7 @@ import unittest
 
 
 class TestSum(unittest.TestCase):
-    """
+    
     def test_valid_1(self):
         assert checkout_solution.checkout("FF") == 20
 
@@ -18,10 +18,10 @@ class TestSum(unittest.TestCase):
 
     def test_valid_5(self):
         assert checkout_solution.checkout("AAAAAAAF") == 310
-"""
+
     def test_valid_6(self):
         assert checkout_solution.checkout("AAAAAAAFFFFF") == 330
-"""
+
     def test_valid_sum(self):
         assert checkout_solution.checkout("ABCDE") == 155
 
@@ -36,9 +36,10 @@ class TestSum(unittest.TestCase):
 
     def test_invalid_digitest_one(self):
         assert checkout_solution.checkout("123") == -1
-"""
+
 if __name__ == "__main__":
     unittest.main()
+
 
 
 
