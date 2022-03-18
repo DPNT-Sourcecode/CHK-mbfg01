@@ -9,6 +9,7 @@ from collections import defaultdict
 # input string format? csv? or just like 1A2B3C ??
 
 # is empty basket as illegal input? it should return 0 instead of -1 I guess
+# Maybe I didn't save? the test cases seems fine but shows error after deployment
 
 def checkout(skus):
     catagory = defaultdict(lambda: 0)
@@ -65,4 +66,5 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
