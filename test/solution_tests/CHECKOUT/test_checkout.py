@@ -3,8 +3,14 @@ import unittest
 
 
 class TestSum(unittest.TestCase):
-    def test_valid_sum(self):
+    def test_valid_1(self):
         assert checkout_solution.checkout("AAAAA") == 200
+
+    def test_valid_2(self):
+        assert checkout_solution.checkout("AAAAAA") == 250
+
+    def test_valid_3(self):
+        assert checkout_solution.checkout("AAAAAAA") == 300
 
     def test_valid_sum(self):
         assert checkout_solution.checkout("ABCDE") == 155
@@ -23,5 +29,6 @@ class TestSum(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
