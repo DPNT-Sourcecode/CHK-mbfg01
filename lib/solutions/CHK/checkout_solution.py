@@ -1,4 +1,4 @@
-
+from collections import defaultdict
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -9,10 +9,12 @@
 
 # is empty basket as illegal input? it should return 0 instead of -1 I guess
 def checkout(skus):
-    catagory = {}
+    catagory = defaultdict(lambda: 0)
     # one pass to store
     for i in skus:
-        if i not in ("A", "B", "C", "D")
+        if i not in ("A", "B", "C", "D"):
+            return -1
+        catagory[i] += 1
 
     #price mapping
     special_price = {
@@ -28,16 +30,7 @@ def checkout(skus):
     # fianl result
     res = 0
 
-    #validate input
-    l = len(skus)
-    if l % 2:
-        return -1
-    for i in range(0, l, 2):
-        # invalid
-        if not skus[i].isdigit():
-            return -1
-        nb = int(skus[i])
-        cat = skus[i+1]
+    for cat ,nb in catagory.items():
         #invalid
         if cat not in normal_price:
             return -1
@@ -49,6 +42,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
