@@ -97,10 +97,16 @@ def checkout(skus):
     remain = count % 3
     start = 0
     while remain:
-        if group_offer[start] > 0:
-            
-
-
+        to_peek = group_offer[start]
+        if catagory[to_peek] > 0:
+            remain -= 1
+            catagory[to_peek] -= 1
+            res += normal_price[to_peek]
+        else:
+            start += 1
+    # remove them to avoid being calculated again
+    for k in group_offer:
+        catagory.pop(k, 0)
 
     for cat ,nb in catagory.items():
         #invalid
@@ -115,6 +121,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 

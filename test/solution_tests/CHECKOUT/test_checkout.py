@@ -25,6 +25,9 @@ class TestSum(unittest.TestCase):
     def test_valid_7(self):
         assert checkout_solution.checkout("FFFF") == 30
 
+    def test_valid_9(self):
+        assert checkout_solution.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBBNNNMFFFKKQQQVVHHHHHSSTTXCVT") == 30
+
     def test_valid_8(self):
         assert checkout_solution.checkout("FFFFFF") == 40
 
@@ -39,3 +42,4 @@ class TestSum(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
