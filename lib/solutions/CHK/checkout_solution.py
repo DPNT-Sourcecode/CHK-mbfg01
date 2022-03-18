@@ -23,7 +23,7 @@ def checkout(skus):
 
     buy_get_free_mapping = {
         ("E", 2): ("B", 1),
-        ("F", 3): ("F", 2)
+        ("F", 3): ("F", 1)
     }
 
     for k, v in buy_get_free_mapping.items():
@@ -68,6 +68,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
