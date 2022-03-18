@@ -122,11 +122,3 @@ def checkout(skus):
         res += nb * normal_price[cat]
     return res
 
-
-
-
-
-
-
-
-
