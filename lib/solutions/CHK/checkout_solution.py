@@ -37,5 +37,11 @@ def checkout(skus):
         if cat in special_price:
             div = nb // special_price[cat][0]
             res += special_price[cat][1] * div
+            # reduce nb so it can be calculated together with products who dont have any special offer
             nb = nb % special_price[cat][0]
+        # normal price
+        res += nb * normal_price[cat]
+    return res
+
+
 
