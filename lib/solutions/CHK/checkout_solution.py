@@ -30,7 +30,7 @@ def checkout(skus):
         cat_from, nb_from = k
         cat_to, nb_to = v
         if cat_to in catagory:
-            catagory[cat_to] -= catagory[cat_from] // 2
+            catagory[cat_to] -= (catagory[cat_from] // nb_from) * nb_to
 
     #price mapping
     # ordered 
@@ -48,8 +48,9 @@ def checkout(skus):
     }
     # fianl result
     # calculate E and remove it from the dict
-    nb_e = catagory.pop("E", 0)
-    res = nb_e * normal_price["E"]
+    for k, _ in buy_get_free_mapping:
+        nb_e = catagory.pop(k, 0)
+        res = nb_e * normal_price[k]
 
     for cat ,nb in catagory.items():
         #invalid
@@ -64,6 +65,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
