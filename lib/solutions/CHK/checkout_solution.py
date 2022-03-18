@@ -1,4 +1,5 @@
 from collections import defaultdict
+from xml.etree.ElementTree import QName
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -11,11 +12,14 @@ from collections import defaultdict
 # is empty basket as illegal input? it should return 0 instead of -1 I guess
 def checkout(skus):
     catagory = defaultdict(lambda: 0)
+    ALLOWED_CAT = ("A", "B", "C", "D", "E")
     # one pass to store
+    # we can calculate initial pricing with E and remove free Bs from the dict
     for i in skus:
-        if i not in ("A", "B", "C", "D", E):
+        if i not in ALLOWED_CAT:
             return -1
         catagory[i] += 1
+    catagory["B"] -= catagory["E"] // 2
 
     #price mapping
     special_price = {
@@ -26,9 +30,11 @@ def checkout(skus):
         "A": 50,
         "B": 30,
         "C": 20,
-        "D": 15
+        "D": 15,
+        "E": 40
     }
     # fianl result
+    
     res = 0
 
     for cat ,nb in catagory.items():
@@ -43,11 +49,4 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
-
-
-
-
-
-
-
 
