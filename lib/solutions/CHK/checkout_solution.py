@@ -10,6 +10,7 @@ from xml.etree.ElementTree import QName
 # input string format? csv? or just like 1A2B3C ??
 
 # is empty basket as illegal input? it should return 0 instead of -1 I guess
+
 def checkout(skus):
     catagory = defaultdict(lambda: 0)
     ALLOWED_CAT = ("A", "B", "C", "D", "E")
@@ -24,8 +25,8 @@ def checkout(skus):
 
     #price mapping
     special_price = {
-        "A": (3, 130),
-        "B": (2, 45)
+        "A": [(5, 200), (3, 130)],
+        "B": [(2, 45)]
     }
     normal_price = {
         "A": 50,
@@ -44,13 +45,15 @@ def checkout(skus):
         if cat not in normal_price:
             return -1
         if cat in special_price:
-            div = nb // special_price[cat][0]
-            res += special_price[cat][1] * div
-            # reduce nb so it can be calculated together with products who dont have any special offer
-            nb = nb % special_price[cat][0]
+            for offer in special_price[cat]:
+                div = nb // offer[0]
+                res += special_price[cat][1] * div
+                # reduce nb so it can be calculated together with products who dont have any special offer
+                nb = nb % special_price[cat][0]
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
