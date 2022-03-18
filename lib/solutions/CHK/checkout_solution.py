@@ -76,12 +76,18 @@ def checkout(skus):
         "V": [(3, 130), (2, 90)]
     }
     
+    
+
     # fianl result
     # calculate E and remove it from the dict
     res = 0
+    # 
     for k, _ in buy_get_free_mapping:
         nb_e = catagory.pop(k, 0)
         res += nb_e * normal_price[k]
+    
+    # for buy any 3 of (S,T,X,Y,Z) for 45, it is also greedy, we will alway have the most expensives singple price ones into the offer, 
+    
 
     for cat ,nb in catagory.items():
         #invalid
@@ -96,6 +102,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
