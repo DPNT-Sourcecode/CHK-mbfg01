@@ -34,8 +34,9 @@ def checkout(skus):
         "E": 40
     }
     # fianl result
-    
-    res = 0
+    # calculate E and remove it from the dict
+    nb_e = catagory.pop("E", 0)
+    res = nb_e * normal_price["E"]
 
     for cat ,nb in catagory.items():
         #invalid
@@ -49,4 +50,5 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
