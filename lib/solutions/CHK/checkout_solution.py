@@ -1,5 +1,4 @@
 from collections import defaultdict
-from xml.etree.ElementTree import QName
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -13,7 +12,7 @@ from xml.etree.ElementTree import QName
 
 def checkout(skus):
     catagory = defaultdict(lambda: 0)
-    ALLOWED_CAT = ("A", "B", "C", "D", "E")
+    ALLOWED_CAT = ("A", "B", "C", "D", "E", "F")
     # one pass to store
     # we can calculate initial pricing with E and remove free Bs from the dict
     for i in skus:
@@ -66,12 +65,4 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
-
-
-
-
-
-
-
-
 
