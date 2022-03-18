@@ -75,6 +75,8 @@ def checkout(skus):
         "Q": [(3, 80)],
         "V": [(3, 130), (2, 90)]
     }
+
+    group_offer = ("X", "S", "T", "Y", "Z")
     
     
 
@@ -87,7 +89,9 @@ def checkout(skus):
         res += nb_e * normal_price[k]
     
     # for buy any 3 of (S,T,X,Y,Z) for 45, it is also greedy, we will alway have the most expensives singple price ones into the offer, 
-    
+    # s t x y z has 20 20 17 20 21, we will get rid of 21 and as many as 20 we can, and we see how we fit the rest 1 or 2 items
+
+
 
     for cat ,nb in catagory.items():
         #invalid
@@ -102,6 +106,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
