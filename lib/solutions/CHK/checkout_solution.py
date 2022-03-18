@@ -94,6 +94,12 @@ def checkout(skus):
     for k in group_offer:
         count += catagory[k]
     res += 45 * (count // 3)
+    remain = count % 3
+    start = 0
+    while remain:
+        if group_offer[start] > 0:
+            
+
 
 
     for cat ,nb in catagory.items():
@@ -109,6 +115,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
