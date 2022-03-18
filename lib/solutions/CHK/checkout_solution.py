@@ -21,14 +21,16 @@ def checkout(skus):
             return -1
         catagory[i] += 1
 
-    
+    buy_get_free_mapping = {
+        ("E", 2): ("B", 1),
+        ("F", 2): ("F", 1)
+    }
 
-    
-    if "B" in catagory:
-        catagory["B"] -= catagory["E"] // 2
-    
-    if "F" in catagory:
-        catagory["F"] -= catagory["F"] // 2
+    for k, v in buy_get_free_mapping.items():
+        cat_from, nb_from = k
+        cat_to, nb_to = v
+        if cat_to in catagory:
+            catagory[cat_to] -= catagory[cat_from] // 2
 
     #price mapping
     # ordered 
@@ -62,6 +64,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
