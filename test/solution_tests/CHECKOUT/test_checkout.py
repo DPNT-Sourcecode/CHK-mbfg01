@@ -22,11 +22,14 @@ class TestSum(unittest.TestCase):
     def test_valid_6(self):
         assert checkout_solution.checkout("AAAAAAAFFFFF") == 330
 
-    def test_valid_sum(self):
-        assert checkout_solution.checkout("ABCDE") == 155
+    def test_valid_7(self):
+        assert checkout_solution.checkout("FFFF") == 30
 
-    def test_invalid(self):
-        assert checkout_solution.checkout("F") == 10
+    def test_valid_8(self):
+        assert checkout_solution.checkout("FFFFFF") == 30
+
+    def test_valid_9(self):
+        assert checkout_solution.checkout("FFFF") == 30
 
     def test_invalid_digit(self):
         assert checkout_solution.checkout("AX") == -1
@@ -39,6 +42,7 @@ class TestSum(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
 
