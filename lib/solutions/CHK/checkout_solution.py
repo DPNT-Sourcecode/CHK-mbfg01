@@ -4,6 +4,7 @@ from collections import defaultdict
 # skus = unicode string
 
 #  greedy
+# still greedy algorithm
 
 # input string format? csv? or just like 1A2B3C ??
 
@@ -12,7 +13,7 @@ def checkout(skus):
     catagory = defaultdict(lambda: 0)
     # one pass to store
     for i in skus:
-        if i not in ("A", "B", "C", "D"):
+        if i not in ("A", "B", "C", "D", E):
             return -1
         catagory[i] += 1
 
@@ -42,6 +43,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
