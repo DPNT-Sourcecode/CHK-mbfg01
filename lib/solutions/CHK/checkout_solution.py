@@ -9,8 +9,8 @@
 def checkout(skus):
     #price mapping
     special_price = {
-        "A": 130,
-        "B": 45
+        "A": (3, 130),
+        "B": (2, 45)
     }
     normal_price = {
         "A": 50,
@@ -34,4 +34,8 @@ def checkout(skus):
         #invalid
         if cat not in normal_price:
             return -1
-        if cat in special_price
+        if cat in special_price:
+            div = nb // special_price[cat][0]
+            res += special_price[cat][1] * div
+            nb = nb % special_price[cat][0]
+
