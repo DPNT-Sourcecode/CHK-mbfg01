@@ -13,11 +13,38 @@ from collections import defaultdict
 
 def checkout(skus):
     catagory = defaultdict(lambda: 0)
-    ALLOWED_CAT = ("A", "B", "C", "D", "E", "F", "G" ,"H" ,"I" ,"J" ,"K" ,"L" ,"M" ,"N" ,"O" ,"P" ,"Q" ,"R" ,"S" ,"T" ,"U" ,"V" ,"W" ,"X" ,"Y" ,"Z")
+    normal_price = {
+        "A": 50,
+        "B": 30,
+        "C": 20,
+        "D": 15,
+        "E": 40,
+        "F": 10,
+        "G": 20,
+        "H": 10,
+        "I": 35,
+        "J": 60,
+        "K": 80,
+        "L": 90,
+        "M": 15,
+        "N": 40,
+        "O": 10,
+        "P": 50,
+        "Q": 30,
+        "R": 50,
+        "S": 30,
+        "T": 20,
+        "U": 40,
+        "V": 50,
+        "W": 20,
+        "X": 90,
+        "Y": 10,
+        "Z": 50,
+    }
     # one pass to store
     # we can calculate initial pricing with E and remove free Bs from the dict
     for i in skus:
-        if i not in ALLOWED_CAT:
+        if i not in normal_price:
             return -1
         catagory[i] += 1
 
@@ -38,40 +65,10 @@ def checkout(skus):
     # ordered 
     special_price = {
         "A": [(5, 200), (3, 130)],
-        "B": [(2, 45)]
+        "B": [(2, 45)],
+        
     }
-    normal_price = {
-        "A": 50,
-        "B": 30,
-        "C": 20,
-        "D": 15,
-        "E": 40,
-        "F": 10,
-        "G": 50,
-        "H": 30,
-        "I": 20,
-        "J": 15,
-        "K": 40,
-        "L": 10,
-        "M": 50,
-        "N": 30,
-        "O": 20,
-        "P": 15,
-        "Q": 40,
-        "R": 10,
-        "S": 50,
-        "T": 30,
-        "U": 20,
-        "V": 15,
-        "W": 40,
-        "X": 10,
-        "A": 50,
-        "B": 30,
-        "C": 20,
-        "D": 15,
-        "E": 40,
-        "F": 10,
-    }
+    
     # fianl result
     # calculate E and remove it from the dict
     res = 0
@@ -92,6 +89,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
