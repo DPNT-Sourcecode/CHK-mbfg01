@@ -19,7 +19,8 @@ def checkout(skus):
         if i not in ALLOWED_CAT:
             return -1
         catagory[i] += 1
-    catagory["B"] -= catagory["E"] // 2
+    if "B" in catagory:
+        catagory["B"] -= catagory["E"] // 2
 
     #price mapping
     special_price = {
@@ -50,5 +51,6 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 

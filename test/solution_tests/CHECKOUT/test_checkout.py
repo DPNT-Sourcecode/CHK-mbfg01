@@ -4,13 +4,13 @@ import unittest
 
 class TestSum(unittest.TestCase):
     def test_valid_sum(self):
-        assert checkout_solution.checkout("ABBCCCDDDE") == 255
+        assert checkout_solution.checkout("AAAAA") == 200
 
     def test_valid_sum(self):
-        assert checkout_solution.checkout("AAABBCDEE") == 275
+        assert checkout_solution.checkout("ABCDE") == 155
 
     def test_invalid(self):
-        assert checkout_solution.checkout("ASDF") == -1
+        assert checkout_solution.checkout("E") == 40
 
     def test_invalid_digit(self):
         assert checkout_solution.checkout("AX") == -1
@@ -23,4 +23,5 @@ class TestSum(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
