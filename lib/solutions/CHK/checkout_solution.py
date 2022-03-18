@@ -20,10 +20,18 @@ def checkout(skus):
         if i not in ALLOWED_CAT:
             return -1
         catagory[i] += 1
+
+    
+
+    
     if "B" in catagory:
         catagory["B"] -= catagory["E"] // 2
+    
+    if "F" in catagory:
+        catagory["F"] -= catagory["F"] // 2
 
     #price mapping
+    # ordered 
     special_price = {
         "A": [(5, 200), (3, 130)],
         "B": [(2, 45)]
@@ -33,7 +41,8 @@ def checkout(skus):
         "B": 30,
         "C": 20,
         "D": 15,
-        "E": 40
+        "E": 40,
+        "F": 10
     }
     # fianl result
     # calculate E and remove it from the dict
@@ -53,6 +62,7 @@ def checkout(skus):
         # normal price
         res += nb * normal_price[cat]
     return res
+
 
 
 
