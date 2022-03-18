@@ -7,7 +7,7 @@ class TestSum(unittest.TestCase):
         assert checkout_solution.checkout("1A2B3C4D") == 215
 
     def test_valid_sum(self):
-        assert checkout_solution.checkout("1A2B3C4D") == 215
+        assert checkout_solution.checkout("3A2B1C1D") == 210
 
     def test_invalid(self):
         assert checkout_solution.checkout("1A2B3C4E") == -1
@@ -15,6 +15,10 @@ class TestSum(unittest.TestCase):
     def test_invalid_digit(self):
         assert checkout_solution.checkout("-A2B3C4E") == -1
 
+    def test_invalid_digitest_zerot(self):
+        assert checkout_solution.checkout("-") == -1
+
 if __name__ == "__main__":
     unittest.main()
+
 
